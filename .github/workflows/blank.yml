@@ -27,11 +27,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.sonartoken }}
         with:
-          projectBaseDir: ${{ github.workspace }}
+          projectBaseDir: cloud
           args: >
             -Dsonar.organization=testorg-yrk
             -Dsonar.projectKey=testorg-yrk
             -D=coverage.xml
             -Dsonar.verbos=true
-            -Dsonar.sources=${{ inputs.projdir }}
+            #-Dsonar.sources=${{ inputs.projdir }}
             -Dsonar.projectDescription=${{ github.repository_id }}
