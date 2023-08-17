@@ -6,6 +6,9 @@ on:
         required: false
         type: string
         default: ""
+    secrets:
+      sonartoken:
+        required: false
 jobs:
   SCS:
     runs-on: "ubuntu-latest"
@@ -18,7 +21,7 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.sonartoken }}
         with:
           projectBaseDir: "cli"
           args: >
