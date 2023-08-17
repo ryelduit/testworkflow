@@ -9,7 +9,7 @@ on:
       projdir:
         required: false
         type: string
-        default: ${{ github.workspace }}
+        default: ""
     secrets:
       sonartoken:
         required: false
@@ -27,10 +27,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.sonartoken }}
         with:
-          projectBaseDir: ${{ inputs.projdir }}
+          projectBaseDir: ${{ github.workspace }}
           args: >
             -Dsonar.organization=testorg-yrk
             -Dsonar.projectKey=testorg-yrk
             -D=coverage.xml
             -Dsonar.verbos=true
+            -DDsonar.sources=${{ inputs.projdir }}
             -Dsonar.projectDescription=${{ github.repository_id }}
