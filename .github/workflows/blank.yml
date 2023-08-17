@@ -33,5 +33,4 @@ jobs:
             -Dsonar.projectKey=testorg-yrk
             -D=coverage.xml
             -Dsonar.verbos=true
-            #-Dsonar.sources=${{ inputs.projdir }}
             -Dsonar.projectDescription=${{ github.repository_id }}
